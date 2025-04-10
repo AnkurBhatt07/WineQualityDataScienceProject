@@ -8,3 +8,11 @@ class DataIngestionConfig:
     local_data_file : Path 
     unzip_dir : Path 
 
+@dataclass
+class DataValidationConfig:
+    StatusFileFolder : Path
+    DataToValidateLoc : Path 
+    StatusFileName : Path 
+    AllSchema : dict
+
+    

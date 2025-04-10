@@ -1,7 +1,7 @@
 # This will be put in src/WineQualityPrediction/config/configuration.py
 from src.WineQualityPrediction.constants import config_file_path , params_file_path , schema_file_path
 from src.WineQualityPrediction.utils.common import read_yaml , create_directories
-from src.WineQualityPrediction.entity.config_entity import DataIngestionConfig
+from src.WineQualityPrediction.entity.config_entity import DataIngestionConfig , DataValidationConfig
 
 class ConfigurationManager:
     def __init__(self , config_file_path = config_file_path ,
@@ -27,4 +27,20 @@ class ConfigurationManager:
         )
         return data_ingestion_config
     
+
+
+    def get_data_validation_config(self) -> DataValidationConfig:
+        config = self.config.data_validation
+        schema = self.schema.COLUMNS
+        create_directories([config.root_dir])
+
+        data_validation_config = DataValidationConfig(
+            DataToValidateLoc=config.dataset_location,
+            StatusFileFolder=config.root_dir,
+            StatusFileName=config.status_file,
+            AllSchema=schema
+        )
+        return data_validation_config
+    
+
 

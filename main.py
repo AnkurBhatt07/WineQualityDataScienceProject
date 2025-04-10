@@ -6,6 +6,7 @@
 
 from src.WineQualityPrediction import logger
 from src.WineQualityPrediction.pipeline.data_ingestion_pipeline import DataIngestionPipeline
+from src.WineQualityPrediction.pipeline.data_validation_pipeline import DataValidationPipeline
 
 
 if __name__ == "__main__":
@@ -15,6 +16,13 @@ if __name__ == "__main__":
         obj = DataIngestionPipeline()
         obj.initiate_data_ingestion()
         logger.info(f">>>>> stage {Stage_name} completed <<<<< ")
+
+        Stage_name = "Data Validation Stage"
+        logger.info(f">>>>> stage {Stage_name} started")
+        obj = DataValidationPipeline()
+        obj.run_data_validation_pipeline()
+        logger.info(f">>>>> stage {Stage_name} completed <<<<< ")
+
     except Exception as e:
         logger.exception(e)
         raise e
