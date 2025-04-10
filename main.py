@@ -4,3 +4,17 @@
 # logger.info("welcome to the custom logging")
 # logger.info("Cheecking the logging process")
 
+from src.WineQualityPrediction import logger
+from src.WineQualityPrediction.pipeline.data_ingestion_pipeline import DataIngestionPipeline
+
+
+if __name__ == "__main__":
+    try :
+        Stage_name = "Data Ingestion Stage"
+        logger.info(f">>>>> stage {Stage_name} started")
+        obj = DataIngestionPipeline()
+        obj.initiate_data_ingestion()
+        logger.info(f">>>>> stage {Stage_name} completed <<<<< ")
+    except Exception as e:
+        logger.exception(e)
+        raise e
