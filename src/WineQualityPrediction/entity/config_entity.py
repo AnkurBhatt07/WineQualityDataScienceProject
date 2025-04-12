@@ -15,4 +15,8 @@ class DataValidationConfig:
     StatusFileName : Path 
     AllSchema : dict
 
+@dataclass
+class DataTransformationConfig:
+    root_dir : Path 
+    data_path : Path 
     
