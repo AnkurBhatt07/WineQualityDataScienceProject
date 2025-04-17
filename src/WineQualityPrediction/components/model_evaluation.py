@@ -11,9 +11,9 @@ from src.WineQualityPrediction.entity.config_entity import ModelEvaluationConfig
 from pathlib import Path
 
 import os
-# os.environ["MLFLOW_TRACKING_URI"] = "https://dagshub.com/ankurbhatt1611/WineQualityDataScienceProject.mlflow"
-# os.environ["MLFLOW_TRACKING_USERNAME"] = "ankurbhatt1611"
-# os.environ["MLFLOW_TRACKING_PASSWORD"] = "896696bb520653b1b87471269f6c9d55771f4bcc"
+os.environ["MLFLOW_TRACKING_URI"] = "https://dagshub.com/ankurbhatt1611/WineQualityDataScienceProject.mlflow"
+os.environ["MLFLOW_TRACKING_USERNAME"] = "ankurbhatt1611"
+os.environ["MLFLOW_TRACKING_PASSWORD"] = "896696bb520653b1b87471269f6c9d55771f4bcc"
 
 class ModelEvaluation:
 
