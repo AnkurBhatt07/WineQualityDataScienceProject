@@ -9,6 +9,7 @@ from src.WineQualityPrediction.pipeline.data_ingestion_pipeline import DataInges
 from src.WineQualityPrediction.pipeline.data_validation_pipeline import DataValidationPipeline
 from src.WineQualityPrediction.pipeline.data_transformation_pipeline import DataTransformationPipeline
 from src.WineQualityPrediction.pipeline.model_trainer_pipeline import ModelTrainerPipeline
+from src.WineQualityPrediction.pipeline.model_evaluation_pipeline import ModelEvaluationPipeline
 if __name__ == "__main__":
     try :
         Stage_name = "Data Ingestion Stage"
@@ -35,7 +36,11 @@ if __name__ == "__main__":
         obj.initiate_model_training()
         logger.info(f">>>>> stage {Stage_name} completed <<<<< ")
 
-
+        Stage_name = "Model Evaluation Stage"
+        logger.info(f">>>>> stage {Stage_name} started <<<<<")
+        obj = ModelEvaluationPipeline()
+        obj.initiate_model_evaluation_pipeline()
+        logger.info(f">>>>> stage {Stage_name} completed <<<<<")
 
 
     except Exception as e:

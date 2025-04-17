@@ -1,7 +1,7 @@
 # This will be put in src/WineQualityPrediction/config/configuration.py
 from src.WineQualityPrediction.constants import config_file_path , params_file_path , schema_file_path
 from src.WineQualityPrediction.utils.common import read_yaml , create_directories
-from src.WineQualityPrediction.entity.config_entity import DataIngestionConfig , DataValidationConfig , DataTransformationConfig , ModelTrainerConfig
+from src.WineQualityPrediction.entity.config_entity import DataIngestionConfig , DataValidationConfig , DataTransformationConfig , ModelTrainerConfig , ModelEvaluationConfig
 
 class ConfigurationManager:
     def __init__(self , config_file_path = config_file_path ,
@@ -65,6 +65,23 @@ class ConfigurationManager:
                                                   target_column=target_column)
         
         return model_trainer_config
+    
+
+    def get_model_evaluation_config(self) -> ModelEvaluationConfig :
+
+        create_directories([self.config.model_evaluation.root_dir])
+        config = self.config.model_evaluation
+        model_evaluation_config = ModelEvaluationConfig(
+            root_dir = config.root_dir,
+            test_data_path = config.test_data_path,
+            model_path = config.model_path,
+            metric_file_name = config.metric_file_name,
+            all_params = self.params.ElasticNet,
+            target_column = self.schema.TARGET_COLUMN.name,
+            mlflow_uri = "https://dagshub.com/ankurbhatt1611/WineQualityDataScienceProject.mlflow"
+            
+        )
+        return model_evaluation_config
     
 
 
