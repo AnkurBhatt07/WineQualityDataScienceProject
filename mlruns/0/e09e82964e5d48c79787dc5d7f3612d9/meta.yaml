@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/WineQuality_EndToEndDataScienceProject/WineQualityDataScienceProject/mlruns/0/e09e82964e5d48c79787dc5d7f3612d9/artifacts
+end_time: 1744915997892
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: e09e82964e5d48c79787dc5d7f3612d9
+run_name: luminous-ray-419
+run_uuid: e09e82964e5d48c79787dc5d7f3612d9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1744915992160
+status: 3
+tags: []
+user_id: Ankur Bhatt
